@@ -4,7 +4,6 @@ This package helps to connect to Google Gemini API. It has the following feature
 
 - Authentication through API key
 - Direct access to the API
-- Flow steps to common calls
 - Helpers to make it easier to use Google Gemini from your app
 
 Keep in mind that OAuth authentication is not supported so far. This means it is not possible to use the API for semantic retrieval.
@@ -17,20 +16,83 @@ These are the configuration parameters:
 
 # Javascript API
 
-TODO: show some sample HTTP requests
-TODO: show how to use the helpers
+## HTTP calls
 
-## Flow Step
+You can make standard HTTP requests to the Google Gemini API:
 
-TODO: complete the documentation for the flow steps
+```js
+// list all models available
+let res = pkg.googleGemini.get('/v1/models');
 
-## About Slingr
+// generate content using google gemini
+let res = pkg.googleGemini.post({
+    path: '/v1/models/gemini-1.5-flash:generateContent',
+    body: {
+        'contents': [
+            {
+                'parts': [
+                    {text: 'What is Slingr? Answer in one sentence.'}
+                ]
+            },
+        ]
+
+    }
+});
+```
+
+The package automatically handles authentication, so no need to worry about that.
+
+More information about making HTTP calls, please refer to the documentation of the [HTTP service](https://github.com/slingr-stack/http-service). 
+
+Finally, there are some helpers that are explained below.
+
+## List models
+
+```js
+pkg.googleGemini.utils.listModels()
+```
+
+Returns an array with the names of the models, like `gemini-1.5-flash`, for example.
+
+Examples:
+
+```js
+let models = pkg.googleGemini.utils.listModels();
+log(JSON.stringify(models));
+```
+
+## Generate content from text
+
+```js
+pkg.googleGemini.utils.generateContentFromText(prompt, options);
+```
+
+Sends the text prompt to Google Gemini and returns the text response. This is the most common use case for Google Gemini.
+
+Parameters:
+
+- `prompt`: a text prompt to send to Google Gemini.
+- `options`: optional object with options. Today, the only available option is `model` and is the name of the model (for example, `gemini-1.5-flash`).
+
+Examples:
+
+```js
+// use the default model
+let response = pkg.googleGemini.utils.generateContentFromText('What is Slingr? Answer in one sentence.');
+log(response);
+
+// specify the model
+response = pkg.googleGemini.utils.generateContentFromText('What is Slingr? Answer in one sentence.', {model: 'gemini-1.0-pro'});
+log(response);
+```
+
+# About Slingr
 
 Slingr is a low-code rapid application development platform that speeds up development,
 with robust architecture for integrations and executing custom workflows and automation.
 
 [More info about Slingr](https://slingr.io)
 
-## License
+# License
 
 This package is licensed under the Apache License 2.0. See the `LICENSE` file for more details.

@@ -196,10 +196,12 @@ function setApiUri(options) {
 
 function setRequestHeaders(options) {
     let headers = options.headers || {};
+    let params = options.params || {};
     sys.logs.debug('[google-gemini] Set authorization header using API key');
-    headers = mergeJSON(headers, {"Authorization": "API-Key " + config.get("apiKey")});
+    params = mergeJSON(params, {"key": config.get("apiKey")});
     headers = mergeJSON(headers, {"Content-Type": "application/json"});
     options.headers = headers;
+    options.params = params;
     return options;
 }
 

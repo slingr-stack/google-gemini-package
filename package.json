@@ -8,7 +8,6 @@
             "version": "^v1.6.3"
         }
     ],
-    "configurationBuilder": "/configurationBuilder.js",
     "configuration": [
         {
             "label": "API Key",
@@ -24,6 +23,12 @@
             "type": "script",
             "namespace": "api",
             "path": "/scripts/api.js"
+        },
+        {
+            "type": "script",
+            "namespace": "utils",
+            "path": "/scripts/utils.js"
         }
+
     ]
 }
