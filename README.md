@@ -22,10 +22,10 @@ You can make standard HTTP requests to the Google Gemini API:
 
 ```js
 // list all models available
-let res = pkg.googleGemini.get('/v1/models');
+let res = pkg.googlegemini.get('/v1/models');
 
 // generate content using google gemini
-let res = pkg.googleGemini.post({
+let res = pkg.googlegemini.post({
     path: '/v1/models/gemini-1.5-flash:generateContent',
     body: {
         'contents': [
@@ -49,7 +49,7 @@ Finally, there are some helpers that are explained below.
 ## List models
 
 ```js
-pkg.googleGemini.utils.listModels()
+pkg.googlegemini.utils.listModels()
 ```
 
 Returns an array with the names of the models, like `gemini-1.5-flash`, for example.
@@ -57,14 +57,14 @@ Returns an array with the names of the models, like `gemini-1.5-flash`, for exam
 Examples:
 
 ```js
-let models = pkg.googleGemini.utils.listModels();
+let models = pkg.googlegemini.utils.listModels();
 log(JSON.stringify(models));
 ```
 
 ## Generate content from text
 
 ```js
-pkg.googleGemini.utils.generateContentFromText(prompt, options);
+pkg.googlegemini.utils.generateContentFromText(prompt, options);
 ```
 
 Sends the text prompt to Google Gemini and returns the text response. This is the most common use case for Google Gemini.
@@ -78,11 +78,11 @@ Examples:
 
 ```js
 // use the default model
-let response = pkg.googleGemini.utils.generateContentFromText('What is Slingr? Answer in one sentence.');
+let response = pkg.googlegemini.utils.generateContentFromText('What is Slingr? Answer in one sentence.');
 log(response);
 
 // specify the model
-response = pkg.googleGemini.utils.generateContentFromText('What is Slingr? Answer in one sentence.', {model: 'gemini-1.0-pro'});
+response = pkg.googlegemini.utils.generateContentFromText('What is Slingr? Answer in one sentence.', {model: 'gemini-1.0-pro'});
 log(response);
 ```
 

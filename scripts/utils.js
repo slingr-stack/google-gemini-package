@@ -20,7 +20,7 @@ let defaultModel = 'gemini-1.5-flash';
  * @returns {string[]} - The names of the available models
  */
 exports.listModels = function() {
-    let res = pkg.googleGemini.api.get('/v1/models');
+    let res = pkg.googlegemini.api.get('/v1/models');
     let modelNames = [];
     for (let model of res.models) {
         let nameWithoutPrefix = model.name.replace("models/", "");
@@ -47,7 +47,7 @@ exports.generateContentFromText = function(prompt, options) {
             },
         ]
     };
-    let res = pkg.googleGemini.api.post({
+    let res = pkg.googlegemini.api.post({
         path: `/v1/models/${model}:generateContent`,
         body: requestBody
     });
