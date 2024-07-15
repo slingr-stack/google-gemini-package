@@ -22,10 +22,10 @@ You can make standard HTTP requests to the Google Gemini API:
 
 ```js
 // list all models available
-let res = pkg.googlegemini.get('/v1/models');
+let res = pkg.googlegemini.api.get('/v1/models');
 
 // generate content using google gemini
-let res = pkg.googlegemini.post({
+let res = pkg.googlegemini.api.post({
     path: '/v1/models/gemini-1.5-flash:generateContent',
     body: {
         'contents': [
