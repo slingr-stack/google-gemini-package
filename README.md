@@ -12,7 +12,11 @@ Keep in mind that OAuth authentication is not supported so far. This means it is
 
 These are the configuration parameters:
 
-- `API Key`: this is the API key for Google Gemini. For more information on how to get it, please look at its documentation [here](https://ai.google.dev/gemini-api/docs/api-key).
+## API Key
+
+Name: `apiKey`
+
+This is the API key for Google Gemini. For more information on how to get it, please look at its documentation [here](https://ai.google.dev/gemini-api/docs/api-key).
 
 # Javascript API
 
