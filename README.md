@@ -1,6 +1,6 @@
-Repo: [https://github.com/slingr-stack/google-gemini-package](https://github.com/slingr-stack/google-gemini-package)
-
 # Overview
+
+Repo: [https://github.com/slingr-stack/google-gemini-package](https://github.com/slingr-stack/google-gemini-package)
 
 This package helps to connect to Google Gemini API. It has the following features:
 
