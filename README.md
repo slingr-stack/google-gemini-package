@@ -1,5 +1,7 @@
 # Overview
 
+Repo: [https://github.com/slingr-stack/google-gemini-package](https://github.com/slingr-stack/google-gemini-package)
+
 This package helps to connect to Google Gemini API. It has the following features:
 
 - Authentication through API key
@@ -12,7 +14,11 @@ Keep in mind that OAuth authentication is not supported so far. This means it is
 
 These are the configuration parameters:
 
-- `API Key`: this is the API key for Google Gemini. For more information on how to get it, please look at its documentation [here](https://ai.google.dev/gemini-api/docs/api-key).
+## API Key
+
+Name: `apiKey`
+
+This is the API key for Google Gemini. For more information on how to get it, please look at its documentation [here](https://ai.google.dev/gemini-api/docs/api-key).
 
 # Javascript API
 
@@ -22,10 +28,10 @@ You can make standard HTTP requests to the Google Gemini API:
 
 ```js
 // list all models available
-let res = pkg.googlegemini.get('/v1/models');
+let res = pkg.googlegemini.api.get('/v1/models');
 
 // generate content using google gemini
-let res = pkg.googlegemini.post({
+let res = pkg.googlegemini.api.post({
     path: '/v1/models/gemini-1.5-flash:generateContent',
     body: {
         'contents': [
